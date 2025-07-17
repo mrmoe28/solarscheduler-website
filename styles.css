@@ -802,8 +802,8 @@ body {
     margin: 0 auto 4rem;
 }
 
-/* Video Phone Container */
-.video-phone-container {
+/* Video Container */
+.video-container {
     display: flex;
     align-items: center;
     gap: 3rem;
@@ -813,53 +813,54 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.video-phone-mockup {
-    width: 320px;
-    height: 640px;
-    background: #1f2937;
-    border-radius: 35px;
-    padding: 15px;
+.video-wrapper {
+    flex: 1;
     position: relative;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    flex-shrink: 0;
-}
-
-.video-phone-screen {
-    background: #000;
-    border-radius: 25px;
-    height: 100%;
+    border-radius: 12px;
     overflow: hidden;
-    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
-.video-status-bar {
+.video-wrapper video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.video-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.video-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #1f2937;
+}
+
+.video-info p {
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.video-meta {
     display: flex;
-    justify-content: space-between;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.video-meta span {
+    display: flex;
     align-items: center;
-    padding: 8px 16px;
-    background: #000;
-    color: white;
-    font-size: 0.8rem;
-    font-weight: 600;
-    position: relative;
-    z-index: 2;
+    color: #6b7280;
 }
 
-.video-app-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #000;
+.video-meta i {
+    margin-right: 0.5rem;
+    color: #2563eb;
 }
 
-.video-app-content video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 25px;
-}
 
 .more-videos {
     text-align: center;
@@ -1379,18 +1380,48 @@ body {
     color: #2563eb;
 }
 
-/* Video Phone Mobile Styles */
+/* Responsive Design - Desktop and Mobile */
+
+/* Desktop styles (default) */
+@media (min-width: 769px) {
+    .video-container {
+        flex-direction: row;
+        text-align: left;
+        padding: 2rem;
+        gap: 3rem;
+    }
+    
+    .video-wrapper {
+        max-width: 500px;
+    }
+    
+    .video-info {
+        max-width: 400px;
+    }
+}
+
+/* Mobile styles */
 @media (max-width: 768px) {
-    .video-phone-container {
+    .video-container {
         flex-direction: column;
         text-align: center;
         padding: 1.5rem;
+        gap: 2rem;
     }
     
-    .video-phone-mockup {
-        width: 280px;
-        height: 560px;
-        margin: 0 auto 2rem;
+    .video-wrapper {
+        margin-bottom: 1rem;
+        max-width: 100%;
+    }
+    
+    .video-info h3 {
+        font-size: 1.3rem;
+    }
+    
+    .video-meta {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
     }
 }
     .hamburger {
