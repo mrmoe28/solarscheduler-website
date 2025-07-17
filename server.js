@@ -27,6 +27,11 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+// Serve the login page
+app.get('/login.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'login.html'));
+});
+
 // Serve the PWA app
 app.get('/app.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'app.html'));

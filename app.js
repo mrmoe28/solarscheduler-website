@@ -56,6 +56,14 @@ class SolarSchedulerApp {
 
     async checkSubscriptionStatus() {
         try {
+            // First check if user is logged in
+            const currentUser = JSON.parse(localStorage.getItem('solarscheduler_current_user') || 'null');
+            if (!currentUser) {
+                console.log('No user logged in, redirecting to login');
+                window.location.href = '/login.html';
+                return;
+            }
+
             // Check for stored subscription data
             const storedSubscription = localStorage.getItem('solarscheduler_subscription');
             if (storedSubscription) {
@@ -101,18 +109,7 @@ class SolarSchedulerApp {
                 }
             }
 
-            // Demo mode for development (remove in production)
-            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-                console.log('Demo mode: Granting access for localhost');
-                this.isSubscribed = true;
-                this.subscriptionData = {
-                    status: 'active',
-                    demo_mode: true
-                };
-                return;
-            }
-
-            // No valid subscription found
+            // No valid subscription found - user must subscribe
             this.isSubscribed = false;
         } catch (error) {
             console.error('Subscription check failed:', error);
