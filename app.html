@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SolarScheduler Pro</title>
     <meta name="description" content="Smart Solar Job Management for Modern Contractors">
+    <script>
+        // Redirect to landing page if accessing app directly
+        if (window.location.pathname === '/app.html' && !window.location.search.includes('session_id')) {
+            const currentUser = localStorage.getItem('solarscheduler_current_user');
+            const subscription = localStorage.getItem('solarscheduler_subscription');
+            
+            // If no user or subscription, redirect to landing
+            if (!currentUser || !subscription) {
+                window.location.href = '/landing.html';
+            }
+        }
+    </script>
     
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#2563eb">
@@ -65,7 +77,7 @@
                 </div>
             </div>
             <div class="subscription-actions">
-                <a href="/payment-checkout.html" class="btn-primary large">
+                <a href="payment-checkout.html" class="btn-primary large">
                     <i class="fas fa-credit-card"></i>
                     Subscribe Now - $40/month
                 </a>

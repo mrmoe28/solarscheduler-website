@@ -2,7 +2,7 @@
   "name": "SolarScheduler Pro",
   "short_name": "SolarScheduler",
   "description": "Smart Solar Job Management for Modern Contractors",
-  "start_url": "/app.html",
+  "start_url": "/landing.html",
   "display": "standalone",
   "background_color": "#2563eb",
   "theme_color": "#2563eb",

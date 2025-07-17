@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolarScheduler Pro - Smart Solar Job Management</title>
+    <meta name="description" content="Transform your solar business with intelligent job management, automated scheduling, and powerful field service tools. Get started today!">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#2563eb">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="SolarScheduler">
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    <!-- Icons -->
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16x16.png">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="landing.css">
+</head>
+<body class="landing-body">
+    <!-- Landing Hero Section -->
+    <section class="landing-hero">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+        </div>
+        
+        <div class="hero-content">
+            <!-- App Logo -->
+            <div class="app-logo-section">
+                <div class="app-icon">
+                    <i class="fas fa-solar-panel"></i>
+                </div>
+                <h1 class="app-title">SolarScheduler Pro</h1>
+                <p class="app-tagline">Smart Solar Job Management for Modern Contractors</p>
+            </div>
+
+            <!-- Key Benefits -->
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>30% Faster</h3>
+                    <p>Project Completion</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>50% Less</h3>
+                    <p>Admin Time</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>95%</h3>
+                    <p>Customer Satisfaction</p>
+                </div>
+            </div>
+
+            <!-- Feature Highlights -->
+            <div class="features-preview">
+                <div class="feature-highlight">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Advanced Scheduling & Routing</span>
+                </div>
+                <div class="feature-highlight">
+                    <i class="fas fa-users"></i>
+                    <span>Team Coordination Tools</span>
+                </div>
+                <div class="feature-highlight">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Real-time Analytics & Reports</span>
+                </div>
+                <div class="feature-highlight">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>Mobile Field App</span>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="cta-section">
+                <h2>Ready to Transform Your Solar Business?</h2>
+                <p>Join thousands of contractors who've streamlined their operations</p>
+                
+                <div class="cta-buttons">
+                    <button id="get-started-btn" class="btn-primary large">
+                        <i class="fas fa-rocket"></i>
+                        Get Started Today
+                    </button>
+                    <button id="learn-more-btn" class="btn-secondary large">
+                        <i class="fas fa-info-circle"></i>
+                        Learn More
+                    </button>
+                </div>
+
+                <div class="trust-indicators">
+                    <div class="trust-item">
+                        <span class="trust-number">10,000+</span>
+                        <span class="trust-label">Active Users</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-number">4.9</span>
+                        <span class="trust-label">App Rating</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-number">500K+</span>
+                        <span class="trust-label">Jobs Completed</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature Demo Carousel -->
+            <div class="demo-carousel">
+                <div class="demo-header">
+                    <h3>See SolarScheduler in Action</h3>
+                    <p>Swipe to explore key features</p>
+                </div>
+                
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- Dashboard Demo -->
+                        <div class="demo-card active">
+                            <div class="demo-phone">
+                                <div class="phone-screen">
+                                    <div class="demo-content dashboard">
+                                        <div class="demo-header-bar">
+                                            <span class="demo-time">4:38</span>
+                                            <div class="demo-battery">74%</div>
+                                        </div>
+                                        <div class="demo-app-content">
+                                            <h4>Dashboard</h4>
+                                            <div class="demo-stats">
+                                                <div class="demo-stat">
+                                                    <span class="stat-value">$127K</span>
+                                                    <span class="stat-label">Revenue</span>
+                                                </div>
+                                                <div class="demo-stat">
+                                                    <span class="stat-value">23</span>
+                                                    <span class="stat-label">Projects</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="demo-info">
+                                <h4>Real-Time Dashboard</h4>
+                                <p>Monitor your business performance with live metrics and insights</p>
+                            </div>
+                        </div>
+
+                        <!-- Jobs Demo -->
+                        <div class="demo-card">
+                            <div class="demo-phone">
+                                <div class="phone-screen">
+                                    <div class="demo-content jobs">
+                                        <div class="demo-header-bar">
+                                            <span class="demo-time">4:38</span>
+                                            <div class="demo-battery">74%</div>
+                                        </div>
+                                        <div class="demo-app-content">
+                                            <h4>Jobs</h4>
+                                            <div class="demo-job-list">
+                                                <div class="demo-job">
+                                                    <div class="job-status installing"></div>
+                                                    <div class="job-info">
+                                                        <span class="job-title">Solar Install</span>
+                                                        <span class="job-location">123 Main St</span>
+                                                    </div>
+                                                </div>
+                                                <div class="demo-job">
+                                                    <div class="job-status scheduled"></div>
+                                                    <div class="job-info">
+                                                        <span class="job-title">Maintenance</span>
+                                                        <span class="job-location">456 Oak Ave</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="demo-info">
+                                <h4>Smart Job Management</h4>
+                                <p>Organize and track installations with intelligent scheduling</p>
+                            </div>
+                        </div>
+
+                        <!-- Team Demo -->
+                        <div class="demo-card">
+                            <div class="demo-phone">
+                                <div class="phone-screen">
+                                    <div class="demo-content team">
+                                        <div class="demo-header-bar">
+                                            <span class="demo-time">4:38</span>
+                                            <div class="demo-battery">74%</div>
+                                        </div>
+                                        <div class="demo-app-content">
+                                            <h4>Team</h4>
+                                            <div class="demo-team-list">
+                                                <div class="demo-member">
+                                                    <div class="member-avatar">JD</div>
+                                                    <div class="member-info">
+                                                        <span class="member-name">John Doe</span>
+                                                        <span class="member-status available">Available</span>
+                                                    </div>
+                                                </div>
+                                                <div class="demo-member">
+                                                    <div class="member-avatar">SM</div>
+                                                    <div class="member-info">
+                                                        <span class="member-name">Sarah Miller</span>
+                                                        <span class="member-status onsite">On Site</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="demo-info">
+                                <h4>Team Coordination</h4>
+                                <p>Manage your team with real-time availability and assignments</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-dots">
+                        <button class="dot active" data-slide="0"></button>
+                        <button class="dot" data-slide="1"></button>
+                        <button class="dot" data-slide="2"></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Final CTA -->
+            <div class="final-cta">
+                <h2>Start Your Free Journey Today</h2>
+                <p>Transform your solar business in minutes, not months</p>
+                <button id="start-now-btn" class="btn-primary extra-large">
+                    <i class="fas fa-arrow-right"></i>
+                    Start Now - It's Free
+                </button>
+                <p class="cta-note">No credit card required • Set up in under 5 minutes</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="landing.js"></script>
+</body>
+</html>
