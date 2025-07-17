@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolarScheduler Pro</title>
+    <meta name="description" content="Smart Solar Job Management for Modern Contractors">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#2563eb">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="SolarScheduler">
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    <!-- Icons -->
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16x16.png">
+    
+    <!-- Fonts and Styles -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="app.css">
+</head>
+<body class="app-body">
+    <!-- App Loading Screen -->
+    <div id="app-loading" class="app-loading">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-solar-panel"></i>
+                <span>SolarScheduler</span>
+            </div>
+            <div class="loading-spinner"></div>
+            <p>Checking subscription status...</p>
+        </div>
+    </div>
+
+    <!-- Subscription Required Screen -->
+    <div id="subscription-required" class="subscription-screen" style="display: none;">
+        <div class="subscription-content">
+            <div class="subscription-icon">
+                <i class="fas fa-lock"></i>
+            </div>
+            <h2>Subscription Required</h2>
+            <p>SolarScheduler Pro requires an active subscription to access the full app features.</p>
+            <div class="subscription-features">
+                <div class="feature-item">
+                    <i class="fas fa-check"></i>
+                    <span>Unlimited team members</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check"></i>
+                    <span>Advanced scheduling & routing</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check"></i>
+                    <span>Real-time project tracking</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check"></i>
+                    <span>Business analytics & reporting</span>
+                </div>
+            </div>
+            <div class="subscription-actions">
+                <a href="/payment-checkout.html" class="btn-primary large">
+                    <i class="fas fa-credit-card"></i>
+                    Subscribe Now - $40/month
+                </a>
+                <button id="refresh-subscription" class="btn-secondary">
+                    <i class="fas fa-refresh"></i>
+                    I already subscribed
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App Interface -->
+    <div id="app-main" class="app-main" style="display: none;">
+        <!-- App Header -->
+        <header class="app-header">
+            <div class="app-header-content">
+                <div class="app-logo">
+                    <i class="fas fa-solar-panel"></i>
+                    <span>SolarScheduler Pro</span>
+                </div>
+                <div class="app-header-actions">
+                    <button class="notification-btn" id="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <div class="user-menu">
+                        <button class="user-btn" id="user-menu">
+                            <div class="user-avatar">JD</div>
+                            <span class="user-name">John Doe</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- App Navigation -->
+        <nav class="app-nav">
+            <div class="nav-items">
+                <button class="nav-item active" data-view="dashboard">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Dashboard</span>
+                </button>
+                <button class="nav-item" data-view="jobs">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Jobs</span>
+                </button>
+                <button class="nav-item" data-view="calendar">
+                    <i class="fas fa-calendar"></i>
+                    <span>Calendar</span>
+                </button>
+                <button class="nav-item" data-view="team">
+                    <i class="fas fa-users"></i>
+                    <span>Team</span>
+                </button>
+                <button class="nav-item" data-view="customers">
+                    <i class="fas fa-address-book"></i>
+                    <span>Customers</span>
+                </button>
+                <button class="nav-item" data-view="reports">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Reports</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- App Content -->
+        <main class="app-content">
+            <!-- Dashboard View -->
+            <div id="dashboard-view" class="app-view active">
+                <div class="view-header">
+                    <h1>Dashboard</h1>
+                    <p>Good morning! Here's what's happening with your solar business today.</p>
+                </div>
+                
+                <div class="dashboard-stats">
+                    <div class="stat-card revenue">
+                        <div class="stat-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>$127,500</h3>
+                            <p>Total Revenue</p>
+                            <span class="stat-change positive">+12.5%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card projects">
+                        <div class="stat-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>23</h3>
+                            <p>Active Projects</p>
+                            <span class="stat-change positive">+3</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card installations">
+                        <div class="stat-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>8</h3>
+                            <p>This Month</p>
+                            <span class="stat-change">Installations</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card energy">
+                        <div class="stat-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>45.2 MWh</h3>
+                            <p>Energy Generated</p>
+                            <span class="stat-change positive">+8.3%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h3>Recent Jobs</h3>
+                        <div class="job-list">
+                            <div class="job-item">
+                                <div class="job-status installing"></div>
+                                <div class="job-info">
+                                    <h4>Solar Installation - Johnson Residence</h4>
+                                    <p>123 Main St, City</p>
+                                    <span class="job-date">In Progress</span>
+                                </div>
+                            </div>
+                            <div class="job-item">
+                                <div class="job-status scheduled"></div>
+                                <div class="job-info">
+                                    <h4>Maintenance Check - Smith Home</h4>
+                                    <p>456 Oak Ave, City</p>
+                                    <span class="job-date">Tomorrow, 9:00 AM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card">
+                        <h3>Team Status</h3>
+                        <div class="team-list">
+                            <div class="team-member">
+                                <div class="member-avatar">JD</div>
+                                <div class="member-info">
+                                    <h4>John Doe</h4>
+                                    <p>Lead Installer</p>
+                                    <span class="member-status available">Available</span>
+                                </div>
+                            </div>
+                            <div class="team-member">
+                                <div class="member-avatar">SM</div>
+                                <div class="member-info">
+                                    <h4>Sarah Miller</h4>
+                                    <p>Solar Technician</p>
+                                    <span class="member-status onsite">On Site</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jobs View -->
+            <div id="jobs-view" class="app-view">
+                <div class="view-header">
+                    <h1>Jobs</h1>
+                    <button class="btn-primary">
+                        <i class="fas fa-plus"></i>
+                        New Job
+                    </button>
+                </div>
+                <div class="jobs-content">
+                    <p>Job management interface coming soon...</p>
+                </div>
+            </div>
+
+            <!-- Calendar View -->
+            <div id="calendar-view" class="app-view">
+                <div class="view-header">
+                    <h1>Calendar</h1>
+                </div>
+                <div class="calendar-content">
+                    <p>Calendar interface coming soon...</p>
+                </div>
+            </div>
+
+            <!-- Team View -->
+            <div id="team-view" class="app-view">
+                <div class="view-header">
+                    <h1>Team</h1>
+                    <button class="btn-primary">
+                        <i class="fas fa-plus"></i>
+                        Add Member
+                    </button>
+                </div>
+                <div class="team-content">
+                    <p>Team management interface coming soon...</p>
+                </div>
+            </div>
+
+            <!-- Customers View -->
+            <div id="customers-view" class="app-view">
+                <div class="view-header">
+                    <h1>Customers</h1>
+                    <button class="btn-primary">
+                        <i class="fas fa-plus"></i>
+                        Add Customer
+                    </button>
+                </div>
+                <div class="customers-content">
+                    <p>Customer management interface coming soon...</p>
+                </div>
+            </div>
+
+            <!-- Reports View -->
+            <div id="reports-view" class="app-view">
+                <div class="view-header">
+                    <h1>Reports</h1>
+                </div>
+                <div class="reports-content">
+                    <p>Reports and analytics interface coming soon...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- PWA Install Prompt -->
+    <div id="install-prompt" class="install-prompt" style="display: none;">
+        <div class="install-content">
+            <div class="install-icon">
+                <i class="fas fa-mobile-alt"></i>
+            </div>
+            <div class="install-text">
+                <h3>Install SolarScheduler</h3>
+                <p>Add to your home screen for easy access</p>
+            </div>
+            <button id="install-btn" class="btn-primary">Install</button>
+            <button id="install-dismiss" class="btn-text">Maybe Later</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

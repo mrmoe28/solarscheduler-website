@@ -27,6 +27,23 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+// Serve the PWA app
+app.get('/app.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'app.html'));
+});
+
+// Serve PWA manifest
+app.get('/manifest.json', (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
+    res.sendFile(path.join(__dirname, 'manifest.json'));
+});
+
+// Serve service worker
+app.get('/sw.js', (req, res) => {
+    res.setHeader('Content-Type', 'application/javascript');
+    res.sendFile(path.join(__dirname, 'sw.js'));
+});
+
 // Create Stripe Checkout Session
 app.post('/create-checkout-session', async (req, res) => {
     try {
