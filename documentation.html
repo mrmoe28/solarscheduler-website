@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - SolarScheduler</title>
+    <meta name="description" content="Complete documentation and guides for SolarScheduler. Learn how to manage your solar business with step-by-step tutorials and API reference.">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .docs-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+
+        .docs-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .docs-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .docs-search {
+            margin-top: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+        }
+
+        .docs-search input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            backdrop-filter: blur(10px);
+        }
+
+        .docs-search input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .docs-search i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .docs-content {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .docs-grid {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 3rem;
+        }
+
+        .docs-sidebar {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .docs-sidebar h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .docs-nav {
+            list-style: none;
+        }
+
+        .docs-nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        .docs-nav a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: #6b7280;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .docs-nav a:hover,
+        .docs-nav a.active {
+            background: #2563eb;
+            color: white;
+        }
+
+        .docs-main {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .docs-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .docs-category {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-left: 4px solid #2563eb;
+        }
+
+        .docs-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .docs-category-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .docs-category-icon i {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .docs-category h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .docs-category p {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .docs-links {
+            list-style: none;
+        }
+
+        .docs-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .docs-links a {
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .docs-links a:hover {
+            color: #1d4ed8;
+        }
+
+        .api-section {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .api-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .api-card {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 2rem;
+            border-left: 4px solid #10b981;
+        }
+
+        .api-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .api-card p {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+        }
+
+        .code-snippet {
+            background: #1f2937;
+            color: #e5e7eb;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+        }
+
+        .quick-start {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 16px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .quick-start h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .quick-start p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .quick-start .btn-primary {
+            background: white;
+            color: #10b981;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .quick-start .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .docs-hero h1 {
+                font-size: 2rem;
+            }
+
+            .docs-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .docs-sidebar {
+                position: static;
+                order: 2;
+            }
+
+            .docs-main {
+                padding: 2rem;
+            }
+
+            .docs-categories {
+                grid-template-columns: 1fr;
+            }
+
+            .api-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-solar-panel"></i>
+                <span>SolarScheduler</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#pricing">Pricing</a></li>
+                <li><a href="index.html#testimonials">Reviews</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="documentation.html">Docs</a></li>
+                <li><a href="index.html#download" class="cta-button">Download Now</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="docs-hero">
+        <div class="container">
+            <h1>SolarScheduler Documentation</h1>
+            <p>Everything you need to get started, integrate, and master SolarScheduler for your solar business.</p>
+            <div class="docs-search">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search documentation...">
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Content -->
+    <section class="docs-content">
+        <div class="container">
+            <div class="docs-categories">
+                <div class="docs-category">
+                    <div class="docs-category-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Getting Started</h3>
+                    <p>Quick start guides to get your solar business up and running with SolarScheduler in minutes.</p>
+                    <ul class="docs-links">
+                        <li><a href="#quick-setup">Quick Setup Guide</a></li>
+                        <li><a href="#first-job">Creating Your First Job</a></li>
+                        <li><a href="#team-setup">Setting Up Your Team</a></li>
+                        <li><a href="#mobile-app">Mobile App Setup</a></li>
+                    </ul>
+                </div>
+                
+                <div class="docs-category">
+                    <div class="docs-category-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Team Management</h3>
+                    <p>Learn how to manage your crew, assign roles, and track team performance effectively.</p>
+                    <ul class="docs-links">
+                        <li><a href="#adding-team">Adding Team Members</a></li>
+                        <li><a href="#roles-permissions">Roles & Permissions</a></li>
+                        <li><a href="#crew-scheduling">Crew Scheduling</a></li>
+                        <li><a href="#performance-tracking">Performance Tracking</a></li>
+                    </ul>
+                </div>
+
+                <div class="docs-category">
+                    <div class="docs-category-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Job Scheduling</h3>
+                    <p>Master the intelligent scheduling system to optimize your solar installation projects.</p>
+                    <ul class="docs-links">
+                        <li><a href="#smart-scheduling">Smart Scheduling</a></li>
+                        <li><a href="#weather-integration">Weather Integration</a></li>
+                        <li><a href="#route-optimization">Route Optimization</a></li>
+                        <li><a href="#recurring-jobs">Recurring Jobs</a></li>
+                    </ul>
+                </div>
+
+                <div class="docs-category">
+                    <div class="docs-category-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3>Project Tracking</h3>
+                    <p>Monitor job progress, manage milestones, and ensure timely project completion.</p>
+                    <ul class="docs-links">
+                        <li><a href="#project-stages">Project Stages</a></li>
+                        <li><a href="#milestone-tracking">Milestone Tracking</a></li>
+                        <li><a href="#photo-documentation">Photo Documentation</a></li>
+                        <li><a href="#client-updates">Client Updates</a></li>
+                    </ul>
+                </div>
+
+                <div class="docs-category">
+                    <div class="docs-category-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <h3>Invoicing & Billing</h3>
+                    <p>Automate your billing process with smart invoicing and payment tracking features.</p>
+                    <ul class="docs-links">
+                        <li><a href="#automated-invoicing">Automated Invoicing</a></li>
+                        <li><a href="#payment-tracking">Payment Tracking</a></li>
+                        <li><a href="#custom-templates">Custom Templates</a></li>
+                        <li><a href="#tax-reporting">Tax Reporting</a></li>
+                    </ul>
+                </div>
+
+                <div class="docs-category">
+                    <div class="docs-category-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Analytics & Reports</h3>
+                    <p>Gain insights into your business performance with comprehensive analytics and reporting.</p>
+                    <ul class="docs-links">
+                        <li><a href="#business-metrics">Business Metrics</a></li>
+                        <li><a href="#team-performance">Team Performance</a></li>
+                        <li><a href="#financial-reports">Financial Reports</a></li>
+                        <li><a href="#custom-dashboards">Custom Dashboards</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="quick-start">
+                <h2>Ready to Get Started?</h2>
+                <p>Follow our step-by-step quick start guide to have your solar business running on SolarScheduler in under 30 minutes.</p>
+                <a href="#quick-setup" class="btn-primary">Start Quick Setup Guide</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Documentation -->
+    <section class="api-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>API Documentation</h2>
+                <p>Integrate SolarScheduler with your existing tools and build custom solutions</p>
+            </div>
+            <div class="api-grid">
+                <div class="api-card">
+                    <h3>Authentication</h3>
+                    <p>Secure API access using API keys and OAuth 2.0 authentication.</p>
+                    <div class="code-snippet">
+POST /api/v1/auth/token
+{
+  "api_key": "your_api_key",
+  "secret": "your_secret"
+}
+                    </div>
+                </div>
+                
+                <div class="api-card">
+                    <h3>Jobs API</h3>
+                    <p>Create, update, and manage solar installation jobs programmatically.</p>
+                    <div class="code-snippet">
+GET /api/v1/jobs
+POST /api/v1/jobs
+PUT /api/v1/jobs/{id}
+DELETE /api/v1/jobs/{id}
+                    </div>
+                </div>
+
+                <div class="api-card">
+                    <h3>Team API</h3>
+                    <p>Manage team members, schedules, and assignments through the API.</p>
+                    <div class="code-snippet">
+GET /api/v1/team/members
+POST /api/v1/team/schedule
+GET /api/v1/team/availability
+                    </div>
+                </div>
+
+                <div class="api-card">
+                    <h3>Analytics API</h3>
+                    <p>Access business metrics and generate custom reports via API.</p>
+                    <div class="code-snippet">
+GET /api/v1/analytics/revenue
+GET /api/v1/analytics/jobs
+GET /api/v1/analytics/team
+                    </div>
+                </div>
+
+                <div class="api-card">
+                    <h3>Webhooks</h3>
+                    <p>Receive real-time notifications for job updates and status changes.</p>
+                    <div class="code-snippet">
+POST /api/v1/webhooks
+{
+  "url": "https://your-app.com/webhook",
+  "events": ["job.completed", "job.started"]
+}
+                    </div>
+                </div>
+
+                <div class="api-card">
+                    <h3>SDK Libraries</h3>
+                    <p>Use our official SDKs for popular programming languages.</p>
+                    <div class="code-snippet">
+# Python
+pip install solarscheduler-python
+
+# JavaScript
+npm install solarscheduler-js
+
+# PHP
+composer require solarscheduler/php-sdk
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-solar-panel"></i>
+                        <span>SolarScheduler</span>
+                    </div>
+                    <p>Streamlining solar businesses with intelligent job management and automated scheduling.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#pricing">Pricing</a></li>
+                        <li><a href="index.html#download">Download</a></li>
+                        <li><a href="documentation.html">API</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="support.html">Help Center</a></li>
+                        <li><a href="support.html#contact">Contact Us</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="#">System Status</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SolarScheduler. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
